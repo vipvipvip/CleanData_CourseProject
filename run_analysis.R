@@ -22,14 +22,27 @@ run <- function () {
   
   dfXTest <- read.table("./UCI HAR Dataset/test/X_test.txt")
   colnames(dfXTest) <-dfFeatures[,2]
-  #head(dfXTest)
   dfyTest <- read.table("./UCI HAR Dataset/test/y_test.txt")
   colnames(dfyTest) <- c("ActivityCode")
-  #dfTestList = list(dfyTest, dfXTest)
-  #dfALL <- join_all(dfTestList)
-  #colnames(dfALL) <- c("ActivityCode", dfFeatures[,2])
-  dfALL <- cbind(dfXTest, dfyTest)
-  str(dfALL)
+  dfTest <- cbind(dfXTest, dfyTest)
+  #str(dfTest)
   
+  dfXTrain <- read.table("./UCI HAR Dataset/train/X_train.txt")
+  colnames(dfXTrain) <-dfFeatures[,2]
+  dfyTrain <- read.table("./UCI HAR Dataset/train/y_train.txt")
+  colnames(dfyTrain) <- c("ActivityCode")
+  dfTrain <- cbind(dfXTrain, dfyTrain)
+  #str(dfTrain)
   
+  dfALL <- rbind(dfTrain, dfTest)
+  dfALL$ActivityLabel <- seq(1:nrow(dfALL))
+  dfALL[dfALL$ActivityCode %in% c(1),563] = "WALKING"
+  dfALL[dfALL$ActivityCode %in% c(2),563] = "WALKING_UPSTAIRS"
+  dfALL[dfALL$ActivityCode %in% c(3),563] = "WALKING_DOWNSTAIRS"
+  dfALL[dfALL$ActivityCode %in% c(4),563] = "SITTING"
+  dfALL[dfALL$ActivityCode %in% c(5),563] = "STANDING"
+  dfALL[dfALL$ActivityCode %in% c(6),563] = "LAYING"
+  table(dfALL$ActivityLabel)
+  
+
 }  
