@@ -42,7 +42,9 @@ run <- function () {
   dfALL[dfALL$ActivityCode %in% c(4),563] = "SITTING"
   dfALL[dfALL$ActivityCode %in% c(5),563] = "STANDING"
   dfALL[dfALL$ActivityCode %in% c(6),563] = "LAYING"
-  table(dfALL$ActivityLabel)
-  
+  #table(dfALL$ActivityLabel)
+  #dfALL[1:10, grep("mean", names(dfALL))]
+  #dfALL[1:10,sort(grep("mean|std", names(dfALL)))]
+  dfALL
 
 }  
