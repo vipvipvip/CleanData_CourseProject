@@ -54,8 +54,36 @@ run <- function () {
   dfALL[dfALL$ActivityCode %in% c(5),numCols] = "STANDING"
   dfALL[dfALL$ActivityCode %in% c(6),numCols] = "LAYING"
   #table(dfALL$ActivityLabel)
-  #dfALL[1:10, grep("mean", names(dfALL))]
-  #dfALL[1:10,sort(grep("mean|std", names(dfALL)))]
-  dfALL[,c(80:82,1:79)]
+  dfALL <- dfALL[,c(80:82,1:79)]
 
+  #4 columns already labeled correctly. it has 180 rows
+  
+  #5 prepare tidy data set
+  final <- data.frame()
+  for (i in 1:30) {
+    for (j in 1:6) {
+      final <- rbind(final, colMeans(dfALL[dfALL$Subjects==i & dfALL$ActivityCode==j, 4:82], c(4,82)))
+    }
+  }
+  colnames(final) <- c(names(dfALL[,4:82]))
+  final$Subject <- 1
+  final$ActivityCode <- 1
+  nr=1
+  for (i in 1:30) {
+      for (j in 1:6) {
+        final$Subject[nr] <- i
+        final$ActivityCode[nr] <- j
+        nr = nr + 1
+    }
+  }
+  final$ActivityLabel <- seq(1:nrow(final))
+  final[final$ActivityCode %in% c(1),ncol(final)] = "WALKING"
+  final[final$ActivityCode %in% c(2),ncol(final)] = "WALKING_UPSTAIRS"
+  final[final$ActivityCode %in% c(3),ncol(final)] = "WALKING_DOWNSTAIRS"
+  final[final$ActivityCode %in% c(4),ncol(final)] = "SITTING"
+  final[final$ActivityCode %in% c(5),ncol(final)] = "STANDING"
+  final[final$ActivityCode %in% c(6),ncol(final)] = "LAYING"
+  
+  final <- final[,c(80:82,1:79)]
+  final
 }  
