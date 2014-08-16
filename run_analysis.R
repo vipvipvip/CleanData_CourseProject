@@ -24,24 +24,35 @@ run <- function () {
   colnames(dfXTest) <-dfFeatures[,2]
   dfyTest <- read.table("./UCI HAR Dataset/test/y_test.txt")
   colnames(dfyTest) <- c("ActivityCode")
-  dfTest <- cbind(dfXTest, dfyTest)
+  dfTestSubjects <- read.table("./UCI HAR Dataset/test/subject_test.txt")
+  colnames(dfTestSubjects) <- c("Subjects")
+  dfTest <- cbind(dfXTest, dfyTest, dfTestSubjects)
   #str(dfTest)
   
   dfXTrain <- read.table("./UCI HAR Dataset/train/X_train.txt")
   colnames(dfXTrain) <-dfFeatures[,2]
   dfyTrain <- read.table("./UCI HAR Dataset/train/y_train.txt")
   colnames(dfyTrain) <- c("ActivityCode")
-  dfTrain <- cbind(dfXTrain, dfyTrain)
+  dfTrainSubjects <- read.table("./UCI HAR Dataset/train/subject_train.txt")
+  colnames(dfTrainSubjects) <- c("Subjects")
+  dfTrain <- cbind(dfXTrain, dfyTrain, dfTrainSubjects)
   #str(dfTrain)
   
+  #1 merge both dataset
   dfALL <- rbind(dfTrain, dfTest)
+  
+  #2 extract mean & std cols & additional columns
+  dfALL <- dfALL[,sort(grep("mean|std|ActivityCode|Subjects", names(dfALL)))]
+  
+  #3 descriptive activity names
+  numCols <- 82 #ncol(dfALL)
   dfALL$ActivityLabel <- seq(1:nrow(dfALL))
-  dfALL[dfALL$ActivityCode %in% c(1),563] = "WALKING"
-  dfALL[dfALL$ActivityCode %in% c(2),563] = "WALKING_UPSTAIRS"
-  dfALL[dfALL$ActivityCode %in% c(3),563] = "WALKING_DOWNSTAIRS"
-  dfALL[dfALL$ActivityCode %in% c(4),563] = "SITTING"
-  dfALL[dfALL$ActivityCode %in% c(5),563] = "STANDING"
-  dfALL[dfALL$ActivityCode %in% c(6),563] = "LAYING"
+  dfALL[dfALL$ActivityCode %in% c(1),numCols] = "WALKING"
+  dfALL[dfALL$ActivityCode %in% c(2),numCols] = "WALKING_UPSTAIRS"
+  dfALL[dfALL$ActivityCode %in% c(3),numCols] = "WALKING_DOWNSTAIRS"
+  dfALL[dfALL$ActivityCode %in% c(4),numCols] = "SITTING"
+  dfALL[dfALL$ActivityCode %in% c(5),numCols] = "STANDING"
+  dfALL[dfALL$ActivityCode %in% c(6),numCols] = "LAYING"
   #table(dfALL$ActivityLabel)
   #dfALL[1:10, grep("mean", names(dfALL))]
   #dfALL[1:10,sort(grep("mean|std", names(dfALL)))]
