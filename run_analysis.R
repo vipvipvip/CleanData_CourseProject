@@ -27,6 +27,8 @@ run <- function () {
   dfTestSubjects <- read.table("./UCI HAR Dataset/test/subject_test.txt")
   colnames(dfTestSubjects) <- c("Subjects")
   dfTest <- cbind(dfXTest, dfyTest, dfTestSubjects)
+  #2 extract mean & std cols & additional columns
+  dfTest <- dfTest[,sort(grep("mean|std|ActivityCode|Subjects", names(dfTest)))]
   #str(dfTest)
   
   dfXTrain <- read.table("./UCI HAR Dataset/train/X_train.txt")
@@ -36,13 +38,15 @@ run <- function () {
   dfTrainSubjects <- read.table("./UCI HAR Dataset/train/subject_train.txt")
   colnames(dfTrainSubjects) <- c("Subjects")
   dfTrain <- cbind(dfXTrain, dfyTrain, dfTrainSubjects)
+  #2 extract mean & std cols & additional columns
+  dfTrain <- dfTrain[,sort(grep("mean|std|ActivityCode|Subjects", names(dfTrain)))]
   #str(dfTrain)
   
   #1 merge both dataset
   dfALL <- rbind(dfTrain, dfTest)
   
   #2 extract mean & std cols & additional columns
-  dfALL <- dfALL[,sort(grep("mean|std|ActivityCode|Subjects", names(dfALL)))]
+  #dfALL <- dfALL[,sort(grep("mean|std|ActivityCode|Subjects", names(dfALL)))]
   
   #3 descriptive activity names
   numCols <- 82 #ncol(dfALL)
