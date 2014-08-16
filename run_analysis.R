@@ -56,6 +56,6 @@ run <- function () {
   #table(dfALL$ActivityLabel)
   #dfALL[1:10, grep("mean", names(dfALL))]
   #dfALL[1:10,sort(grep("mean|std", names(dfALL)))]
-  dfALL
+  dfALL[,c(80:82,1:79)]
 
 }  
