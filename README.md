@@ -20,6 +20,8 @@ In the R console:
   > source("run_analysis.R")
   > run()
 
+Hope this helps.
+-- Dikesh Chokshi
 To run the script:
   set working directory where the run_analysis.R file located
     
