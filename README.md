@@ -1,5 +1,5 @@
 ---
-title: "CodeBook.md"
+title: "Readme.md"
 author: "Dikesh Chokshi"
 date: "Monday, August 18, 2014"
 output: html_document
@@ -24,8 +24,10 @@ To run the script:
   eg. setwd("~/GitHub/Getting_N_Cleaning_Data/CleanData_CourseProject")
   
 In the R console:
-  > source("run_analysis.R")
-  > run()
+```{r}
+source("run_analysis.R")
+run()
+```
 
 This will create tidySet.csv which you can view in Excel by importing with the "space" delimiter.
 
