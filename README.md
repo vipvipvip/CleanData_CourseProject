@@ -2,7 +2,7 @@
 title: "Readme.md"
 author: "Dikesh Chokshi"
 date: "Monday, August 18, 2014"
-output: html_document
+output: word_document
 ---
 CleanData_CourseProject
 =======================
@@ -10,12 +10,12 @@ run_analysis.R - script to import, process and produce the final tidySet.csv in 
 
 
 The folder structure looks like so on my laptop starting at the working directory:
-  C:/Users/dikesh-chokshi/Documents/GitHub/Getting_N_Cleaning_Data/CleanData_CourseProject
-      \run_analysis.R
-      \README.md
-      \CodeBook.md
-      \UCI HAR Dataset
-          <data files>
+C:/Users/dikesh-chokshi/Documents/GitHub/Getting_N_Cleaning_Data/CleanData_CourseProject
+  \run_analysis.R
+  \README.md
+  \CodeBook.md
+  \UCI HAR Dataset
+    <data files>
     
 Under the "\UCI HAR Dataset folder"", are all the files from the "getdata_projectfiles_UCI HAR Dataset.zip".
 
