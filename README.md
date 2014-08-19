@@ -1,5 +1,6 @@
 CleanData_CourseProject
 =======================
+<<<<<<< HEAD
 run_analysis.R - script to import, process and produce the final tidySet.csv in the working directory. The script resides in the working directory and expects the data to reside in "UCI HAR Dataset" folder.
 
 
@@ -26,3 +27,5 @@ This will create tidySet.csv which you can view in Excel by importing with the "
 Hope this helps.
 -- Dikesh Chokshi
     
+=======
+>>>>>>> origin/master
