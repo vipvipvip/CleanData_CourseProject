@@ -88,6 +88,7 @@ run <- function () {
   final[final$ActivityCode %in% c(5),ncol(final)] = "STANDING"
   final[final$ActivityCode %in% c(6),ncol(final)] = "LAYING"
   
-  final <- final[,c(80:82,1:79)]
-  final
+  final <- final[,c(80,82,1:79)]
+  #final
+  write.table(final,"tidySet.csv",row.names=F)
 }  
