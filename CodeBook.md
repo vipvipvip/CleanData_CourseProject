@@ -19,7 +19,16 @@ Column in TidySet: (Total 81 columns)
   Subject             Person who performed the activity
   ActivityLabel	      One of the 6 activities:  1=Walking, 2=WALKING_UPSTAIRS,
                       3=WALKING_DOWNSTAIRS, 4= SITTING, 5=STANDING, 6=LAYING
-                    
+
+Remaining columns represent the mean & standard deviation readings of the various features and are listed below with the following common notes to the naming & meaning convention:
+  prefix 't' - indicates time
+  prefix 'f' - indicates frequency domain signals
+  'Acc' - indicates accelerometer signals
+  'Gyro' - indicates gyroscope signals
+  'X', 'Y', & "Z" - indicates the readings in the 3-axial space.
+  'Jerk' - Jerk signals obtained derived in time from body linear acceleration and angular velocity.
+  'Mag' - Magnitude of the various signals 
+
                     tBodyAccmeanX
                     tBodyAccmeanY
                     tBodyAccmeanZ
