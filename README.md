@@ -13,15 +13,16 @@ The folder structure looks like so on my laptop starting at the working director
     
 Under the "\UCI HAR Dataset folder"", are all the files from the "getdata_projectfiles_UCI HAR Dataset.zip".
 
-To run, first set the current working directory which points to where the run_analysis.R.
+To run the script:
+  set working directory where the run_analysis.R file located
   eg. setwd("~/GitHub/Getting_N_Cleaning_Data/CleanData_CourseProject")
   
 In the R console:
   > source("run_analysis.R")
   > run()
 
+This will create tidySet.csv which you can view in Excel by importing with the "space" delimiter.
+
 Hope this helps.
 -- Dikesh Chokshi
-To run the script:
-  set working directory where the run_analysis.R file located
     
