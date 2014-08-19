@@ -16,9 +16,9 @@ output: html_document
 9. Write out a csv file using write.table() using row.names=FALSE.
 
 Column in TidySet: (Total 81 columns)
-Subject             Person who performed the activity
-ActivityLabel	      One of the 6 activities:  1=Walking, 2=WALKING_UPSTAIRS,
-                    3=WALKING_DOWNSTAIRS, 4= SITTING, 5=STANDING, 6=LAYING
+  Subject             Person who performed the activity
+  ActivityLabel	      One of the 6 activities:  1=Walking, 2=WALKING_UPSTAIRS,
+                      3=WALKING_DOWNSTAIRS, 4= SITTING, 5=STANDING, 6=LAYING
                     
                     tBodyAccmeanX
                     tBodyAccmeanY
