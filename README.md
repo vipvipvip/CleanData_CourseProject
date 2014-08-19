@@ -1,3 +1,9 @@
+---
+title: "CodeBook.md"
+author: "Dikesh Chokshi"
+date: "Monday, August 18, 2014"
+output: html_document
+---
 CleanData_CourseProject
 =======================
 run_analysis.R - script to import, process and produce the final tidySet.csv in the working directory. The script resides in the working directory and expects the data to reside in "UCI HAR Dataset" folder.
